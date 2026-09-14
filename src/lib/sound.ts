@@ -52,8 +52,7 @@ export function setMuted(next: boolean) {
   listeners.forEach((l) => l(next));
 }
 
-let musicTimer: number | null = null;
-let musicGain: GainNode | null = null;
+let themeAudio: HTMLAudioElement | null = null;
 let musicStarted = false;
 
 function playDrone({
