@@ -3,6 +3,9 @@
  * audio files. All cues are procedural and respect a persisted mute flag.
  */
 
+import { cdnAsset } from "@/lib/assets";
+import themePointer from "@/assets/audio-rise-of-junkies.mp3.asset.json";
+
 const MUTE_KEY = "faraction:muted";
 
 let ctx: AudioContext | null = null;
