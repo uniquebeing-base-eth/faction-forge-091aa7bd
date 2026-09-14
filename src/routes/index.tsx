@@ -131,7 +131,8 @@ function Landing() {
   const { player } = usePlayer();
   const { config: season, status } = useSeason();
   const [fact, setFact] = useState(BASE_FACT_PLACEHOLDER);
-  const [featured, setFeatured] = useState(() => FEATURED.findIndex((f) => f.id === "noxar"));
+  const [featured, setFeatured] = useState(0);
+  const [muted, setLocalMuted] = useState(false);
 
   useEffect(() => {
     setFact(randomFact());
@@ -139,13 +140,19 @@ function Landing() {
     return () => clearInterval(t);
   }, []);
 
+  // Roster spotlight: every fighter takes the stage in turn, stats included.
   useEffect(() => {
-    const t = setInterval(() => setFeatured((i) => (i + 1) % FEATURED.length), 9000);
+    const t = setInterval(() => setFeatured((i) => (i + 1) % CHARACTERS.length), ROSTER_ROTATE_MS);
     return () => clearInterval(t);
   }, []);
 
+  useEffect(() => {
+    setLocalMuted(hydrateMute());
+    return subscribeMute(setLocalMuted);
+  }, []);
+
   const pass = passIsActive(player);
-  const hero = CHARACTERS.find((fighter) => fighter.id === player.fighterId) ?? CHARACTERS[0]!;
+  const hero = CHARACTERS[featured] ?? CHARACTERS[0]!;
   const heroArt = hero.fullArt || hero.standingArt || hero.portrait || "";
   const heroAlt = `${hero.name} fighter artwork`;
 
