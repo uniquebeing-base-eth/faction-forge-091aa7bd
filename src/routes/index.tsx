@@ -148,7 +148,10 @@ function Landing() {
 
   useEffect(() => {
     setLocalMuted(hydrateMute());
-    return subscribeMute(setLocalMuted);
+    const unsub = subscribeMute(setLocalMuted);
+    return () => {
+      unsub();
+    };
   }, []);
 
   const pass = passIsActive(player);
