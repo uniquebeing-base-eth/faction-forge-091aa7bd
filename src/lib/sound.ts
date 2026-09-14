@@ -64,8 +64,13 @@ let musicStarted = false;
  */
 const THEME_SRC = cdnAsset(themePointer);
 
+export function musicIsPlaying(): boolean {
+  return musicStarted;
+}
+
 function startMusic() {
   if (typeof window === "undefined" || muted) return;
+  if (musicStarted && themeAudio && !themeAudio.paused) return;
   if (!themeAudio) {
     themeAudio = new Audio(THEME_SRC);
     themeAudio.loop = true;
