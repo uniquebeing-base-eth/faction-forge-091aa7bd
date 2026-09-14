@@ -13,7 +13,14 @@ import {
   tournamentStandings,
 } from "@/lib/tournaments.functions";
 
-import { useSeason, rewardForRank, REWARD_RANKS, formatFacts } from "@/lib/game/season";
+import {
+  useSeason,
+  rewardForRank,
+  REWARD_RANKS,
+  formatFacts,
+  HOOD_JUNKIES_SITE,
+  HOOD_JUNKIES_OPENSEA,
+} from "@/lib/game/season";
 
 export const Route = createFileRoute("/leaderboard")({
   head: () => ({
