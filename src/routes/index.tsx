@@ -14,16 +14,18 @@ import {
   Settings,
   ShieldCheck,
   Sparkles,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePlayer, passIsActive, displayHandle } from "@/lib/game/store";
 import { randomFact, CHARACTERS } from "@/lib/game/gameData";
 import { GameWorld } from "@/components/GameWorld";
 import { SeasonIntroScene } from "@/components/SeasonIntroScene";
-import { TopBar } from "@/components/TopBar";
-import squadGenesisAssetPointer from "@/assets/img/squad-genesis.webp.asset.json";
+import squadJunkiesPointer from "@/assets/img/squad-junkies.png.asset.json";
 import { cdnAsset } from "@/lib/assets";
-const squadGenesisAsset = cdnAsset(squadGenesisAssetPointer);
+import { hydrateMute, isMuted, setMuted, subscribeMute, sfx, music } from "@/lib/sound";
+const squadJunkiesAsset = cdnAsset(squadJunkiesPointer);
 import { useSeason, formatFacts } from "@/lib/game/season";
 import { ActivityTicker } from "@/components/ActivityTicker";
 
