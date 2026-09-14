@@ -219,6 +219,25 @@ function Landing() {
         </div>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label={muted ? "Play theme song" : "Mute theme song"}
+            title={muted ? "Play theme song" : "Mute theme song"}
+            onClick={() => {
+              const next = !isMuted();
+              setMuted(next);
+              if (!next) {
+                sfx.tap();
+                music.start();
+              }
+            }}
+            className="flex items-center gap-2 rounded-full border border-fuchsia-400/50 bg-fuchsia-500/10 px-3 py-2 text-fuchsia-200 shadow-[0_0_18px_rgba(192,114,255,0.2)]"
+          >
+            {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+            <span className="font-display text-[10px] uppercase tracking-[0.18em]">
+              {muted ? "Muted" : "Theme"}
+            </span>
+          </button>
           <div className="flex items-center gap-2 rounded-full border border-cyan-400/50 bg-cyan-500/10 px-4 py-2 text-cyan-200 shadow-[0_0_18px_rgba(45,212,191,0.2)]">
             <span className="font-display text-[11px] uppercase tracking-[0.18em]">FACTS</span>
             <span className="font-display text-lg font-bold">{Math.max(0, Math.floor(player.fp)).toLocaleString()}</span>
