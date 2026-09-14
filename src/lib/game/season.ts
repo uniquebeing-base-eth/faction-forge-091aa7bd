@@ -84,6 +84,7 @@ export function seasonStatus(config: SeasonConfig, now: number = Date.now()): Se
   return {
     config,
     endsAt,
+    snapshotAt: endsAt - 86_400_000,
     msLeft,
     ended: msLeft === 0,
     progress: Math.min(1, Math.max(0, (total - msLeft) / total)),
