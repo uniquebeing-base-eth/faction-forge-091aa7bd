@@ -309,6 +309,22 @@ function Landing() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-5 max-w-[500px] overflow-hidden rounded-[26px] border border-fuchsia-400/40 bg-[rgba(10,12,18,0.6)] p-3 shadow-[0_0_26px_rgba(192,114,255,0.25)]">
+              <div className="flex items-center justify-between">
+                <span className="font-display text-[10px] uppercase tracking-[0.2em] text-fuchsia-200">
+                  The Junkie Squad
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-white/45">Season 2</span>
+              </div>
+              <img
+                src={squadJunkiesAsset}
+                alt="The Hood Junkies squad of FarAction fighters wreathed in purple flame"
+                loading="eager"
+                decoding="async"
+                className="mt-2 h-[150px] w-full object-contain drop-shadow-[0_16px_50px_rgba(192,114,255,0.45)]"
+              />
+            </div>
           </div>
 
           <div className="absolute inset-x-[18%] bottom-0 top-[18px] flex items-end justify-center">
