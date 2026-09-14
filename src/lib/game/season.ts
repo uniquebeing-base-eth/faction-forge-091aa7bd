@@ -58,9 +58,15 @@ export function formatFacts(n: number): string {
   return n.toLocaleString();
 }
 
+/** Hood Junkies NFT — holding one is required for Season 2 reward eligibility. */
+export const HOOD_JUNKIES_SITE = "https://hoodjunkies.world";
+export const HOOD_JUNKIES_OPENSEA = "https://opensea.io/collection/hood-junkies";
+
 export interface SeasonStatus {
   config: SeasonConfig;
   endsAt: number;
+  /** Eligibility snapshot: taken 24h before the season closes. */
+  snapshotAt: number;
   /** Milliseconds left; 0 once the season has closed. */
   msLeft: number;
   /** True once the timer hits zero: leaderboard locks, rewards claimable. */
