@@ -91,26 +91,8 @@ export const Route = createFileRoute("/")({
 const BASE_FACT_PLACEHOLDER =
   "Base is an Ethereum L2 incubated by Coinbase, built on the OP Stack.";
 
-/**
- * Featured hero rotation. Add an entry here to spotlight a new fighter — the
- * home page cycles through the list and needs no other change.
- */
-const FEATURED: { id: string; art: string; name: string; tag: string; alt: string }[] = [
-  {
-    id: "squad",
-    art: squadGenesisAsset,
-    name: "THE SQUAD",
-    tag: "Season 2 · The Rise of Junkies roster",
-    alt: "The FarAction squad standing together in the arena",
-  },
-  ...CHARACTERS.map((c) => ({
-    id: c.id,
-    art: c.fullArt,
-    name: c.name,
-    tag: `${c.className} class`,
-    alt: `${c.name}, ${c.className} class fighter in the FarAction arena`,
-  })),
-];
+/** How long each fighter holds the spotlight before the roster rotates. */
+const ROSTER_ROTATE_MS = 3500;
 
 const NAV_ITEMS = [
   { to: "/", label: "Home", Icon: Home, active: true },
