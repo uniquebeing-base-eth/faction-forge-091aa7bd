@@ -60,6 +60,7 @@ export interface Card {
   image: string;
   isWild?: boolean;
   isPremium?: boolean;
+  rarity?: string;
   price?: number;
 }
 

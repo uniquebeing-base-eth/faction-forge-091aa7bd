@@ -112,11 +112,11 @@ const FEATURED: { id: string; art: string; name: string; tag: string; alt: strin
 
 const NAV_ITEMS = [
   { to: "/", label: "Home", Icon: Home, active: true },
-  { to: "/create-match", label: "Fight", Icon: Swords },
-  { to: "/leaderboard", label: "Leaderboard", Icon: Trophy },
-  { to: "/loadout", label: "Cards", Icon: PlusCircle },
-  { to: "/select-fighter", label: "Roster", Icon: Users },
-  { to: "/market", label: "Market", Icon: Store },
+  { to: "/create-match", label: "Fight", Icon: Swords, active: false },
+  { to: "/leaderboard", label: "Leaderboard", Icon: Trophy, active: false },
+  { to: "/loadout", label: "Cards", Icon: PlusCircle, active: false },
+  { to: "/select-fighter", label: "Roster", Icon: Users, active: false },
+  { to: "/market", label: "Market", Icon: Store, active: false },
 ] as const;
 
 const STATIONS = [

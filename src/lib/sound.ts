@@ -122,8 +122,8 @@ function startMusic() {
       return;
     }
     const t = ac.currentTime + 0.05;
-    const bass = progression[step % progression.length];
-    const top = lead[step % lead.length];
+    const bass = progression[step % progression.length] ?? 110;
+    const top = lead[step % lead.length] ?? 392;
     pulseKick({ ac, startAt: t, out: musicGain ?? ac.destination });
     playDrone({ ac, freq: bass, gain: 0.05, type: "triangle", startAt: t, dur: 0.32, out: musicGain ?? ac.destination });
     playDrone({ ac, freq: top, gain: 0.025, type: "sawtooth", startAt: t + 0.08, dur: 0.28, out: musicGain ?? ac.destination });
